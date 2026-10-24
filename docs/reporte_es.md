@@ -1,6 +1,6 @@
 # Reporte: calidad del aire en la CDMX (2020–2025)
 
-*Resumen ejecutivo en español. El análisis completo, con código y gráficas, está en los notebooks
+*Resumen en español. El análisis completo, con código y gráficas, está en los notebooks
 de [`notebooks/`](../notebooks) (en inglés).*
 
 ## 1. Introducción
