@@ -1,10 +1,11 @@
 # Data
 
-The raw data is **not** stored in this repository. It is public and can be downloaded from
-Mexico City's Environment Department (SEDEMA, *Secretaría del Medio Ambiente*) through the
-Atmospheric Monitoring System (SIMAT) portal: <http://www.aire.cdmx.gob.mx>, section
-*Bases de datos* → hourly concentrations (*concentraciones horarias*), one Excel file per
-pollutant and year.
+The raw data is **not** stored in this repository. It is public and is published by Mexico City's
+Environment Department (SEDEMA, *Secretaría del Medio Ambiente*), measured by the Automatic
+Atmospheric Monitoring Network (RAMA, *Red Automática de Monitoreo Atmosférico*). It can be
+downloaded from the Atmospheric Monitoring System (SIMAT) portal, <http://www.aire.cdmx.gob.mx>,
+section *Bases de datos*: hourly concentrations come as one `.zip` per year containing one `.xls`
+file per pollutant.
 
 ## Expected files
 

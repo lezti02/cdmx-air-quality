@@ -22,6 +22,16 @@ MISSING_CODES = [-99, -999]
 # share of missing data (see the missing-data heatmap in notebook 01).
 SELECTED_STATIONS = ["AJM", "CAM", "MER", "NEZ", "PED", "TLA", "UIZ"]
 
+STATION_NAMES = {
+    "AJM": "Ajusco Medio",
+    "CAM": "Camarones",
+    "MER": "Merced",
+    "NEZ": "Nezahualcóyotl",
+    "PED": "Pedregal",
+    "TLA": "Tlalnepantla",
+    "UIZ": "UAM Iztapalapa",
+}
+
 UNITS = {
     "CO": "ppm",
     "NO": "ppb",

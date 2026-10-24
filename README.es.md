@@ -9,6 +9,14 @@ escenario estará cada estación durante la siguiente hora.
 
 ![Escenarios por hora del día](reports/figures/01_share_by_hour.png)
 
+## Motivación
+
+El proyecto nació de una pregunta personal: ¿qué tan contaminado está el aire de la Ciudad de
+México y cómo cambian esos niveles entre zonas y a lo largo del tiempo? La contaminación es un
+riesgo directo para la salud y un tema central de la política ambiental. El proyecto avanza en dos
+pasos hacia un **sistema de alertas tempranas**: primero entender y agrupar las condiciones
+atmosféricas de la ciudad (clustering) y después anticiparlas antes de que ocurran (pronóstico).
+
 ## Puntos clave
 
 - **Ingeniería de datos:** une 54 archivos de Excel (9 contaminantes × 6 años × 36 estaciones) en
@@ -55,11 +63,36 @@ Los notebooks, el código y las gráficas están en inglés.
 
 ## Datos
 
-Concentraciones horarias de CO, NO, NO2, NOx, O3, PM10, PM2.5, PMCO y SO2 del Sistema de
-Monitoreo Atmosférico (SIMAT), publicadas por la Secretaría del Medio Ambiente (SEDEMA). Se usan
-las 7 estaciones que miden todos los contaminantes con cobertura aceptable (AJM, CAM, MER, NEZ,
-PED, TLA, UIZ). Los archivos no se incluyen en el repositorio; las instrucciones de descarga están
-en [`data/README.md`](data/README.md).
+Concentraciones horarias de CO, NO, NO2, NOx, O3, PM10, PM2.5, PMCO y SO2 de la Red Automática
+de Monitoreo Atmosférico (RAMA), publicadas por la Secretaría del Medio Ambiente (SEDEMA). Se usan
+las 7 estaciones que miden todos los contaminantes con cobertura aceptable, repartidas por la
+ciudad:
+
+| Clave | Estación | Zona | Perfil (2025) |
+|---|---|---|---|
+| AJM | Ajusco Medio | Sur | ~51% aire limpio, ~3% contaminación alta |
+| PED | Pedregal | Suroeste | ~51% aire limpio, ~5% contaminación alta |
+| MER | Merced | Centro | ~24% contaminación alta |
+| TLA | Tlalnepantla | Norte (industrial) | ~23% contaminación alta |
+| CAM | Camarones | Norte | ~20% contaminación alta |
+| UIZ | UAM Iztapalapa | Oriente | ~17% contaminación alta |
+| NEZ | Nezahualcóyotl | Oriente | ~13% contaminación alta |
+
+Los archivos no se incluyen en el repositorio; las instrucciones de descarga están en
+[`data/README.md`](data/README.md).
+
+## Posibles aplicaciones
+
+- **Alertas focalizadas:** saber qué zonas y horarios están más expuestos permite a los servicios
+  de salud y emergencia actuar de forma local y no en toda la ciudad.
+- **Políticas por zona:** conservar las áreas verdes del sur y aplicar medidas más estrictas de
+  tráfico e industria en el centro y el norte.
+- **Operación en tiempo real:** conectado al flujo horario de la RAMA, el pipeline de limpieza,
+  K-Means y el modelo de pronóstico podrían clasificar y anticipar escenarios en tiempo real,
+  alimentar un tablero por estación y monitorear el data drift con reentrenamientos programados.
+
+**Siguientes pasos:** pronóstico a varias horas (6, 12 o 24 h), variables meteorológicas y más
+estaciones para cubrir toda la zona metropolitana.
 
 ## Cómo ejecutarlo
 

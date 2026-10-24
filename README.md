@@ -9,6 +9,14 @@ next hour.
 
 ![Scenario share by hour of the day](reports/figures/01_share_by_hour.png)
 
+## Motivation
+
+This project started from a personal question: how polluted is the air in Mexico City, and how do
+pollution levels move across neighbourhoods and over time? Air pollution is a direct health risk
+and a central topic of environmental policy. The project is built in two steps towards an
+**early-warning system**: first understand and group the city's atmospheric conditions
+(clustering), then anticipate them before they happen (forecasting).
+
 ## Highlights
 
 - **Data engineering:** merges 54 raw Excel files (9 pollutants × 6 years × 36 stations) into one
@@ -56,9 +64,19 @@ model would be the better production choice. Notebook 02 discusses why and what 
 ## Data
 
 Hourly concentrations of CO, NO, NO2, NOx, O3, PM10, PM2.5, PMCO and SO2 from Mexico City's
-Atmospheric Monitoring System (SIMAT), published by the Environment Department (SEDEMA). The
-analysis keeps the 7 stations that measure every pollutant with acceptable coverage (AJM, CAM,
-MER, NEZ, PED, TLA, UIZ).
+Automatic Atmospheric Monitoring Network (RAMA), published by the Environment Department
+(SEDEMA). The analysis keeps the 7 stations that measure every pollutant with acceptable
+coverage, spread across the city:
+
+| Code | Station | Area | Profile (2025) |
+|---|---|---|---|
+| AJM | Ajusco Medio | South | ~51% clean air, ~3% high pollution |
+| PED | Pedregal | South-west | ~51% clean air, ~5% high pollution |
+| MER | Merced | City centre | ~24% high pollution |
+| TLA | Tlalnepantla | North (industrial) | ~23% high pollution |
+| CAM | Camarones | North | ~20% high pollution |
+| UIZ | UAM Iztapalapa | East | ~17% high pollution |
+| NEZ | Nezahualcóyotl | East | ~13% high pollution |
 
 The raw files are not included in the repository. See [`data/README.md`](data/README.md) for
 download instructions and the expected file layout.
@@ -122,14 +140,27 @@ pytest
 ruff check src tests
 ```
 
+## Potential applications
+
+- **Targeted alerts:** knowing which areas and hours are most exposed lets health and emergency
+  services act locally instead of city-wide.
+- **Localized policy:** protecting green areas in the south; stricter traffic and industrial
+  measures in the centre and north.
+- **Operational pipeline:** connected to RAMA's hourly feed, the cleaning steps, K-Means and the
+  forecaster could classify and anticipate scenarios in real time, feed a dashboard by station,
+  and be monitored for data drift with scheduled retraining.
+
 ## Limitations and next steps
 
+- Multi-step forecasting (6, 12 or 24 hours ahead) is what an early-warning system needs and is the
+  natural next step.
 - Meteorological variables (temperature, wind, solar radiation, humidity) are not used yet and
   would likely improve both the clustering and the forecast.
 - The scenario labels come from K-Means, so the forecast predicts a data-driven category, not the
   official air-quality index. A natural next step is to forecast pollutant concentrations
   directly, or the official index.
-- Only 7 of the 36 stations have enough coverage for this analysis.
+- Only 7 of the 36 stations have enough coverage for this analysis; covering the whole
+  metropolitan area would need a strategy for stations that do not measure every pollutant.
 
 ## Tech stack
 
