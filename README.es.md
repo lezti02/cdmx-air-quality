@@ -59,7 +59,7 @@ ligeramente arriba (0.795): con estas variables la capacidad extra de la LSTM no
 mejor desempeño, y el modelo más simple sería la mejor opción en producción. El notebook 02
 explica por qué y qué probar después.
 
-Los notebooks, el código y las gráficas están en inglés.
+El **reporte completo en español** está en [`docs/reporte_es.md`](docs/reporte_es.md). Los notebooks, el código y las gráficas están en inglés.
 
 ## Datos
 

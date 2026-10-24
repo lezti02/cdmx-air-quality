@@ -2,6 +2,8 @@
 
 **English** | [Español](README.es.md)
 
+> 📄 Full written report in Spanish: [`docs/reporte_es.md`](docs/reporte_es.md)
+
 End-to-end data science project on six years of hourly air pollution data from Mexico City's
 monitoring network (SEDEMA). Unsupervised learning finds four recurring **atmospheric
 scenarios**, and an **LSTM** network forecasts which scenario each station will be in during the
@@ -114,6 +116,7 @@ download instructions and the expected file layout.
 │   └── plots.py                              # Shared plotting style
 ├── tests/                                    # Unit tests (pytest)
 ├── data/                                     # Raw data goes here (not versioned)
+├── docs/reporte_es.md                        # Written report (Spanish)
 ├── reports/figures/                          # Figures exported by the notebooks
 ├── requirements.txt
 └── pyproject.toml
